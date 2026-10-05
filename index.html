@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mostafa Mahmoud — Data Analyst &amp; BI Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --bg:#FAF9F6;
+  --surface:#F2EEE8;
+  --surface2:#E9E3DA;
+  --navy:#1E3A5F;
+  --navy2:#2A4F7C;
+  --navy-light:#4A7AAF;
+  --text:#1A2A3A;
+  --muted:#6A7A8A;
+  --border:#D5D0C8;
+  --cream:#EAE4DA;
+  --accent:#2A5F9E;
+}
+
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7; scroll-behavior: smooth;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;
+  background:rgba(250,249,246,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 3.5rem;
+  height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  z-index:100;
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;
+  color:var(--navy);
+  font-weight:700;
+  text-decoration:none;
+}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{
+  font-size:13px;font-weight:600;
+  color:var(--muted);text-decoration:none;
+  letter-spacing:0.05em;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--navy);}
+.nav-cta{
+  background:var(--navy);color:#fff;
+  border:none;padding:8px 20px;
+  border-radius:100px;
+  font-size:13px;font-weight:700;
+  font-family:'Nunito',sans-serif;
+  cursor:pointer;text-decoration:none;
+  transition:opacity 0.2s;
+}
+.nav-cta:hover{opacity:0.85;}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:100vh;
+  overflow:hidden;
+  background:var(--bg);
+  margin-top:64px;
+}
+
+.hero-left{
+  position:relative;display:flex;
+  align-items:center;justify-content:center;
+  padding:3rem;background:var(--navy);overflow:hidden;
+}
+.hero-left::before{content:'';position:absolute;bottom:-80px;right:-80px;width:300px;height:300px;background:rgba(255,255,255,0.05);border-radius:50%;}
+.hero-left::after{content:'';position:absolute;top:-60px;left:-60px;width:200px;height:200px;background:rgba(255,255,255,0.04);border-radius:50%;}
+
+.avatar-wrap{
+  width:280px;height:280px;
+  border-radius:50%;
+  border:6px solid rgba(255,255,255,0.2);
+  overflow:hidden;
+  position:relative;z-index:2;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+}
+.avatar-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+
+.hero-right{
+  padding:5rem 4rem;
+  display:flex;flex-direction:column;justify-content:center;
+  background:var(--bg);
+}
+
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--navy);color:#fff;
+  font-size:12px;font-weight:700;letter-spacing:0.08em;
+  padding:6px 18px;border-radius:100px;
+  margin-bottom:1.5rem;width:fit-content;
+}
+.pill-dot{width:7px;height:7px;background:#4ADE80;border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.8rem,4.5vw,4rem);
+  line-height:1.05;color:var(--navy);margin-bottom:0.4rem;
+}
+
+.role-tag{
+  font-size:1.05rem;font-weight:700;
+  color:var(--navy-light);letter-spacing:0.05em;
+  margin-bottom:1.2rem;
+}
+
+.hero-desc{
+  font-size:15px;color:var(--muted);
+  max-width:440px;margin-bottom:2rem;line-height:1.8;
+}
+
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2.5rem;}
+
+.btn-fill{
+  background:var(--navy);color:#fff;border:none;
+  padding:12px 26px;border-radius:100px;
+  font-size:13px;font-weight:700;
+  font-family:'Nunito',sans-serif;cursor:pointer;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  transition:opacity 0.2s,transform 0.15s;
+}
+.btn-fill:hover{opacity:0.85;transform:translateY(-1px);}
+
+.btn-out{
+  background:transparent;color:var(--navy);
+  border:2px solid var(--navy);
+  padding:11px 24px;border-radius:100px;
+  font-size:13px;font-weight:700;
+  font-family:'Nunito',sans-serif;cursor:pointer;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  transition:background 0.2s,color 0.2s,transform 0.15s;
+}
+.btn-out:hover{background:var(--navy);color:#fff;transform:translateY(-1px);}
+
+.hero-stats{
+  display:flex;gap:2.5rem;
+  border-top:1px solid var(--border);padding-top:1.5rem;
+}
+.stat .num{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;color:var(--navy);
+}
+.stat .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
+
+/* SECTIONS COMMON */
+.section{padding:5rem 3.5rem;max-width:1100px;margin:0 auto;}
+
+.sec-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--navy-light);margin-bottom:0.8rem;
+}
+.sec-label::before{content:'';display:block;width:24px;height:2px;background:var(--navy-light);}
+
+.sec-title{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;color:var(--navy);margin-bottom:2rem;
+}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center;}
+.about-text{font-size:15px;color:var(--muted);line-height:1.9;}
+.about-text p+p{margin-top:1rem;}
+
+.quote-block{
+  background:var(--navy);color:#fff;
+  border-radius:20px;padding:2.5rem 2rem;
+  position:relative;overflow:hidden;
+}
+.quote-block::before{
+  content:'"';
+  font-family:'Playfair Display',serif;
+  font-size:8rem;color:rgba(255,255,255,0.1);
+  position:absolute;top:-20px;left:12px;line-height:1;
+}
+.quote-text{font-size:15px;font-style:italic;line-height:1.85;position:relative;z-index:1;}
+.quote-author{margin-top:1.2rem;font-size:12px;font-weight:700;letter-spacing:0.12em;opacity:0.6;}
+
+/* SKILLS */
+.skills-bg{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;}
+
+.skill-card{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:14px;padding:1.4rem 1rem;text-align:center;
+  transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;
+}
+.skill-card:hover{border-color:var(--navy-light);transform:translateY(-4px);box-shadow:0 8px 24px rgba(30,58,95,0.1);}
+.skill-icon{font-size:28px;margin-bottom:10px;}
+.skill-name{font-size:13px;font-weight:700;color:var(--navy);}
+.skill-sub{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.4;}
+
+.skill-card.primary{background:var(--navy);border-color:var(--navy);}
+.skill-card.primary .skill-name{color:#fff;}
+.skill-card.primary .skill-sub{color:rgba(255,255,255,0.55);}
+.skill-card.primary:hover{box-shadow:0 8px 24px rgba(30,58,95,0.3);}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;}
+
+.proj-card{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+  transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s;
+  text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;color:inherit;
+}
+.proj-card:hover{transform:translateY(-5px);border-color:var(--navy-light);box-shadow:0 12px 32px rgba(30,58,95,0.12);}
+
+.proj-header{background:var(--navy);padding:1.6rem;color:#fff;}
+.proj-header h3{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:5px;line-height:1.3;}
+.proj-header p{font-size:12px;opacity:0.75;}
+
+.proj-body{padding:1.4rem 1.6rem;flex-grow:1;}
+.proj-body p{font-size:13px;color:var(--muted);margin-bottom:1rem;line-height:1.7;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.ptag{
+  font-size:11px;padding:4px 11px;border-radius:100px;
+  background:var(--cream);color:var(--navy);
+  border:1px solid var(--border);font-weight:700;
+}
+
+.proj-footer{
+  padding:0.8rem 1.6rem 1.2rem;
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:700;color:var(--navy-light);
+  border-top:1px solid rgba(0,0,0,0.04);
+}
+
+/* EXPERIENCE & EDUCATION */
+.exp-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:2rem 2.2rem;
+  display:grid;grid-template-columns:auto 1fr;gap:1.8rem;align-items:start;
+  margin-bottom: 1.5rem;
+}
+.exp-icon{
+  width:58px;height:58px;background:var(--navy);
+  border-radius:14px;display:flex;align-items:center;
+  justify-content:center;font-size:28px;flex-shrink:0;color:#fff;
+}
+.exp-title{font-weight:700;font-size:1.05rem;color:var(--navy);margin-bottom:2px;}
+.exp-org{font-size:12px;color:var(--navy-light);font-weight:700;margin-bottom:0.8rem;}
+.exp-desc{font-size:13px;color:var(--muted);line-height:1.7;}
+.exp-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:1rem;}
+.etag{
+  font-size:11px;font-weight:700;padding:4px 12px;
+  background:var(--cream);color:var(--navy);
+  border-radius:100px;border:1px solid var(--border);
+}
+
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.edu-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:1.8rem 2rem;
+  position:relative;overflow:hidden;
+}
+.edu-card::after{
+  content:'🎓';position:absolute;
+  right:1.5rem;top:1.5rem;font-size:3rem;opacity:0.1;
+}
+.edu-univ{font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:3px;}
+.edu-degree{font-size:13px;color:var(--navy-light);font-weight:700;margin-bottom:5px;}
+.edu-period{font-size:12px;color:var(--muted);}
+.edu-desc{font-size:13px;color:var(--muted);margin-top:0.8rem;line-height:1.7;}
+
+/* CONTACT SECTION */
+.contact-bg{background:var(--bg);border-top:1px solid var(--border);}
+.contact-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center;}
+.contact-heading{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;color:var(--navy);
+  line-height:1.2;margin-bottom:1rem;
+}
+.contact-sub{font-size:14px;color:var(--muted);margin-bottom:2rem;}
+.contact-links{display:flex;flex-direction:column;gap:12px;}
+.clink{
+  display:flex;align-items:center;gap:12px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:13px 16px;
+  font-size:13px;color:var(--text);text-decoration:none;
+  transition:border-color 0.2s,transform 0.15s;
+}
+.clink:hover{border-color:var(--navy);transform:translateX(3px);}
+.clink i{color:var(--navy-light);font-size:19px;flex-shrink:0;}
+.clink-label{font-size:11px;color:var(--muted);}
+.clink-value{font-weight:700;color:var(--navy);font-size:13px;}
+
+footer{
+  text-align:center;padding:2rem;
+  font-size:12px;color:var(--muted);
+  border-top:1px solid var(--border);
+  background:var(--bg);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .hero-left{min-height:320px;}
+  .hero-right{padding:3rem 2rem;}
+  .about-grid,.contact-inner,.edu-grid{grid-template-columns:1fr;}
+  .section{padding:3.5rem 2rem;}
+  nav{padding:0 2rem;}
+  .nav-links{display:none;}
+  .exp-card{grid-template-columns:1fr; text-align: center;}
+  .exp-icon{margin: 0 auto;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">Mostafa Mahmoud</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:mostafaedu2005@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <div class="avatar-wrap">
+      <img src="9_10x15_3.jpg" alt="Mostafa Mahmoud" onerror="this.src='./Mostafa Mahmoud — Junior Data Analyst_files/WhatsApp Image 2026-05-09 at 2.50.48 PM.jpeg'">
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="pill"><span class="pill-dot"></span>Available for Hire</div>
+    <h1>Mostafa<br>Mahmoud</h1>
+    <div class="role-tag">Data Analyst &amp; BI Developer</div>
+    <p class="hero-desc">Computer and Data Science student at Alexandria University specializing in Business Intelligence, statistical modeling, and data pipelines. Turning complex numbers into decision-making stories.</p>
+    <div class="hero-btns">
+      <a href="mailto:mostafaedu2005@gmail.com" class="btn-fill"><i class="ti ti-mail"></i> Hire Me</a>
+      <a href="https://github.com/MostafaMahmoud-25" class="btn-out" target="_blank"><i class="ti ti-brand-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/mostafa-mahmoud-493021354" class="btn-out" target="_blank"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">5</div><div class="label">Projects</div></div>
+      <div class="stat"><div class="num">3.31</div><div class="label">GPA</div></div>
+      <div class="stat"><div class="num">B2</div><div class="label">English</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="sec-label">Who I am</div>
+  <h2 class="sec-title">About Me</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Hi! I'm Mostafa, a Computers and Data Science student at Alexandria University. I'm passionate about exploring datasets, uncovering operational bottlenecks, and building interactive visual analytics that empower leaders to make sound decisions.</p>
+      <p>I specialize in Power BI (DAX &amp; Modeling), Python, SQL, and SAS, with a strong focus on clinical operations, supply chain logistics, and commercial performance modeling.</p>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">I don't just crunch numbers — I look for the story inside the data. Every dataset becomes a clearer picture of reality.</div>
+      <div class="quote-author">— MOSTAFA MAHMOUD</div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills-bg">
+<div class="section">
+  <div class="sec-label">What I do</div>
+  <h2 class="sec-title">Skills &amp; Expertise</h2>
+  <div class="skills-grid">
+    <div class="skill-card primary">
+      <div class="skill-icon">📊</div>
+      <div class="skill-name">Power BI</div>
+      <div class="skill-sub">DAX · Star Schema · UI/UX</div>
+    </div>
+    <div class="skill-card primary">
+      <div class="skill-icon">🐍</div>
+      <div class="skill-name">Python</div>
+      <div class="skill-sub">Pandas · NumPy · Matplotlib</div>
+    </div>
+    <div class="skill-card primary">
+      <div class="skill-icon">🗄️️</div>
+      <div class="skill-name">SQL</div>
+      <div class="skill-sub">Data Queries &amp; Modeling</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📋</div>
+      <div class="skill-name">Excel &amp; Power Query</div>
+      <div class="skill-sub">ETL · Automation</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📈</div>
+      <div class="skill-name">SAS</div>
+      <div class="skill-sub">Statistical Modeling</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-name">Machine Learning</div>
+      <div class="skill-sub">Regression · Data Mining</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="projects" class="section">
+  <div class="sec-label">My work</div>
+  <h2 class="sec-title">Featured Projects</h2>
+  <div class="projects-grid">
+
+    <!-- 1. Hospital Operations Project -->
+    <a class="proj-card" href="https://github.com/MostafaMahmoud-25/hospital-inpatient-operations-powerbi" target="_blank">
+      <div class="proj-header">
+        <h3>Clinical Operations &amp; Capacity Command Center</h3>
+        <p>Power BI · DAX · Healthcare Analytics</p>
+      </div>
+      <div class="proj-body">
+        <p>Analyzed 55,000+ patient admissions and $1.42B in clinical expenditures. Built telemetry monitoring length of stay (ALOS), prolonged bed occupancy (>20 days), and triage acuity distribution.</p>
+        <div class="proj-tags"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Star Schema</span></div>
+      </div>
+      <div class="proj-footer"><i class="ti ti-brand-github"></i> View on GitHub</div>
+    </a>
+
+    <!-- 2. Supply Chain Control Tower -->
+    <a class="proj-card" href="https://github.com/MostafaMahmoud-25/supply-chain-risk-control-tower" target="_blank">
+      <div class="proj-header">
+        <h3>Supply Chain Risk &amp; Control Tower</h3>
+        <p>Power BI · Operations &amp; Logistics</p>
+      </div>
+      <div class="proj-body">
+        <p>Interactive risk intelligence dashboard analyzing fulfillment velocity, delivery delay patterns, inventory lead times, and carrier reliability across global supply chains.</p>
+        <div class="proj-tags"><span class="ptag">Power BI</span><span class="ptag">Logistics</span><span class="ptag">Risk Modeling</span></div>
+      </div>
+      <div class="proj-footer"><i class="ti ti-brand-github"></i> View on GitHub</div>
+    </a>
+
+    <!-- 3. SAS Statistical Analysis -->
+    <a class="proj-card" href="https://github.com/MostafaMahmoud-25/statistical-analysis-sas-report" target="_blank">
+      <div class="proj-header">
+        <h3>Statistical Analysis &amp; Predictive Modeling</h3>
+        <p>SAS · Statistical Computing</p>
+      </div>
+      <div class="proj-body">
+        <p>End-to-end statistical modeling project conducting exploratory data analysis, hypothesis testing, feature engineering, and logistic regression workflows to predict key outcomes.</p>
+        <div class="proj-tags"><span class="ptag">SAS</span><span class="ptag">Regression</span><span class="ptag">Hypothesis Testing</span></div>
+      </div>
+      <div class="proj-footer"><i class="ti ti-brand-github"></i> View on GitHub</div>
+    </a>
+
+    <!-- 4. Car Sales Dashboard -->
+    <a class="proj-card" href="https://github.com/MostafaMahmoud-25/Car-Sales-Power-BI" target="_blank">
+      <div class="proj-header">
+        <h3>Car Sales Performance &amp; Revenue Analytics</h3>
+        <p>Power BI · Commercial Analytics</p>
+      </div>
+      <div class="proj-body">
+        <p>Interactive multi-page dashboard tracking dealership benchmarks, sales velocity, YoY growth metrics, and customer demographics using advanced DAX modeling.</p>
+        <div class="proj-tags"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Sales KPIs</span></div>
+      </div>
+      <div class="proj-footer"><i class="ti ti-brand-github"></i> View on GitHub</div>
+    </a>
+
+    <!-- 5. Airbnb Python Analysis -->
+    <a class="proj-card" href="https://github.com/MostafaMahmoud-25/airbnb-python-analysis" target="_blank">
+      <div class="proj-header">
+        <h3>Airbnb Market Analysis &amp; EDA</h3>
+        <p>Python · Data Exploration</p>
+      </div>
+      <div class="proj-body">
+        <p>Full data cleaning, feature extraction, and exploratory data analysis pipeline identifying listing pricing strategies and geographical demand patterns.</p>
+        <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">Seaborn</span></div>
+      </div>
+      <div class="proj-footer"><i class="ti ti-brand-github"></i> View on GitHub</div>
+    </a>
+
+  </div>
+</section>
+
+<section id="experience" class="section">
+  <div class="sec-label">My Path</div>
+  <h2 class="sec-title">Experience &amp; Training</h2>
+  <div class="exp-card">
+    <div class="exp-icon"><i class="ti ti-database"></i></div>
+    <div class="content">
+      <div class="exp-title">Data Engineer Trainee</div>
+      <div class="exp-org">Digital Egypt Pioneers Initiative (DEPI) | 2026 – Present</div>
+      <p class="exp-desc">Specialized technical training focused on ETL data pipelines, big data modeling, cloud engineering practices, and advanced analytical problem solving.</p>
+      <div class="exp-tags"><span class="etag">Data Engineering</span><span class="etag">Pipelines</span><span class="etag">DEPI</span></div>
+    </div>
+  </div>
+  <div class="exp-card">
+    <div class="exp-icon"><i class="ti ti-briefcase"></i></div>
+    <div class="content">
+      <div class="exp-title">Freelance Data Analyst</div>
+      <div class="exp-org">Remote | 02/2026 – Present</div>
+      <p class="exp-desc">Delivered custom Business Intelligence dashboards, data modeling, and automated reporting solutions to support decision-making for clients and research teams.</p>
+      <div class="exp-tags"><span class="etag">Power BI</span><span class="etag">DAX</span><span class="etag">Excel ETL</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="skills-bg">
+  <div class="section">
+    <div class="sec-label">Learning</div>
+    <h2 class="sec-title">Education</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-univ">Alexandria University</div>
+        <div class="edu-degree">Bachelor in Computers and Data Science</div>
+        <div class="edu-period">Faculty of Science | GPA: 3.31</div>
+        <p class="edu-desc">Core Focus: Statistical Modeling, Machine Learning, Data Mining, and Relational Database Systems.</p>
+      </div>
+      <div class="edu-card">
+        <div class="edu-univ">Dolab Academy</div>
+        <div class="edu-degree">Data Analysis Professional Track</div>
+        <div class="edu-period">2026</div>
+        <p class="edu-desc">Applied curriculum covering advanced Power BI modeling, Python data structures, and complex SQL querying.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section contact-bg">
+  <div class="contact-inner">
+    <div>
+      <div class="sec-label">Get in touch</div>
+      <h2 class="contact-heading">Let's connect and build data-driven solutions.</h2>
+      <p class="contact-sub">Open for Business Intelligence consulting, data engineering contracts, and full-time opportunities.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:mostafaedu2005@gmail.com" class="clink">
+        <i class="ti ti-mail"></i>
+        <div><div class="clink-label">Email</div><div class="clink-value">mostafaedu2005@gmail.com</div></div>
+      </a>
+      <div class="clink">
+        <i class="ti ti-phone"></i>
+        <div><div class="clink-label">Phone</div><div class="clink-value">+20 109 809 8241</div></div>
+      </div>
+      <div class="clink">
+        <i class="ti ti-map-pin"></i>
+        <div><div class="clink-label">Location</div><div class="clink-value">Alexandria, Egypt</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Mostafa Mahmoud. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
